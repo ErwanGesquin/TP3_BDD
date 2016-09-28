@@ -34,7 +34,49 @@
                 <h3>Consultation des opérations</h3>
             </div>
             <div class="row panel-body">
-                <p>Welcome to Ensi Bank Consutation des operations</p>
+                <form class="form-horizontal" method="POST" action="../controller/opDisplaySelection.php">
+                    <div class="form-group">
+                        <label for="clientNameInput" class="col-sm-2 control-label">Consulter les opérations de : </label>
+                        <div class="col-sm-4">
+                            <select id="clientNameInput" class="form-control" name="name"> <!-- ici sera rempli avec la liste des clients via repuête php -->
+                                <option>--</option>
+                                <option>Mme</option>
+                                <option>Mlle</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p>ou</p>
+                    <div class="form-group">
+                        <label for="cardNumberInput" class="col-sm-2 control-label">Consulter les opérations de la carte n° :</label>
+                        <div class="col-sm-4">
+                            <select id="cardNumberInput" class="form-control" name="cardNumber">
+                                <option>Compte chèque</option>
+                                <option>Compte sur livret</option>
+                                <option>Plan épargne logement</option>
+                                <option>Codevi</option>
+                                <option>Compte de GAB</option>
+                                <option>Compte commercant</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dateDepInput" class="col-sm-2 control-label">Entre le :</label>
+                        <div class="col-sm-2">
+                            <input type="date" class="form-control" id="dateDepInput" name="dateMin">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dateArrInput" class="col-sm-2 control-label">et le</label>
+                        <div class="col-sm-2">
+                            <input type="date" class="form-control" id="dateArrInput" name="dateMax">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button type="submit" class="btn btn-default">OK</button>
+                        <button type="submit" class="btn btn-default">Clear</button>
+                    </div>
+
+                </form>
             </div>
         </div>
     </div>

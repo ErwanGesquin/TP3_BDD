@@ -34,11 +34,11 @@
                 <h3>Ouverture de comptes</h3>
             </div>
             <div class="row panel-body">
-                <form class="form-horizontal">
+                <form class="form-horizontal" method="POST" action="../controller/accountCreate.php">
                     <div class="form-group">
                         <label for="clientNameInput" class="col-sm-2 control-label">Titulaire du compte</label>
                         <div class="col-sm-4">
-                            <select id="clientNameInput" class="form-control"> <!-- ici sera rempli avec la liste des clients via repuête php -->
+                            <select id="clientNameInput" class="form-control" name="accountTit"> <!-- ici sera rempli avec la liste des clients via repuête php -->
                                 <option>M</option>
                                 <option>Mme</option>
                                 <option>Mlle</option>
@@ -48,7 +48,7 @@
                     <div class="form-group">
                         <label for="accountTypeInput" class="col-sm-2 control-label">Type de compte</label>
                         <div class="col-sm-4">
-                            <select id="accountTypeInput" class="form-control">
+                            <select id="accountTypeInput" class="form-control" name="accountType">
                                 <option>Compte chèque</option>
                                 <option>Compte sur livret</option>
                                 <option>Plan épargne logement</option>
@@ -62,7 +62,7 @@
                     <div class="form-group">
                         <label for="soldeInput" class="col-sm-2 control-label">Solde initial du compte</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="soldeInput" placeholder="solde">
+                            <input type="text" class="form-control" id="soldeInput" placeholder="solde" name="initSolde">
                         </div>
                     </div>
                     <div class="row">
