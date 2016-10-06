@@ -60,7 +60,7 @@ function getAccountNumber($bdd){
         $req = $bdd->prepare('SELECT MAX(numCompte) FROM compte');
 
         $res = $req->execute();
-
+        var_dump($res);
         return fetchDatas($res);
     }catch(Exception $e){
         die('Erreur : ' . $e->getMeessage());
@@ -71,9 +71,18 @@ function getAccountNumber($bdd){
 
 
 //Requètes tableau de bord
-function selectNbOperation(){}
-function selectTotalOperations(){}
-function selectGabDatas(){}
+function selectNbOperation($bdd){
+    $req = $bdd->query('SELECT COUNT(numOperation) as nbOp FROM operation');
+    return fetchDatas($req);
+}
+function selectTotalOperations($bdd){
+    $req = $bdd->query('SELECT SUM(montant) as totalOp FROM operation');
+    return fetchDatas($req);
+}
+function selectGabDatas($bdd){
+    $req = $bdd->query('SELECT * FROM gab');
+    return fetchDatas($req);
+}
 function selectCommercantsDatas(){}
 
 //Requètes pour l'affichage de operations

@@ -34,10 +34,47 @@
                 <h3>Tableaux de bord</h3>
             </div>
             <div class="row panel-body">
-                <p>Welcome to Ensi Bank tableaux de bord</p>
+                <?php
+                    include('../controller/bdd.php');
+                    $bdd = connectBdd('localhost', 'ensibank', 'utf8', 'root', 'root');
+                    $nbOp = selectNbOperation($bdd);
+                    $totalOp = selectTotalOperations($bdd);
+                    $gabActivity = selectGabDatas($bdd);
+                ?>
+
+                <div class="row">
+                    <div class="panel panel-default col-xs-2">
+                        <div class="panel-heading">
+                            Nombre d'opérations
+                        </div>
+                        <div class="panel-body">
+                            <?php
+                                echo $nbOp['nbOp'];
+                            ?>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <div class="panel panel-default col-xs-2">
+                        <div class="panel-heading">
+                            Activité des GAB
+                        </div>
+                        <div class="panel-body">
+                            <?php
+                                var_dump($gabActivity);
+                            ?>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>
+
 </div>
 </body>
 </html>
