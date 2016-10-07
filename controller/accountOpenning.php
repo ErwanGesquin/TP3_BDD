@@ -5,4 +5,4 @@
  * Date: 28/09/16
  * Time: 11:28
  */
-    include("../view/accountOpenning.html");
+    include("../view/accountOpenning.php");
