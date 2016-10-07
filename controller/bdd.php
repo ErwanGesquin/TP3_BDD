@@ -80,9 +80,14 @@ function selectTotalOperations($bdd){
     return fetchDatas($req);
 }
 function selectGabDatas($bdd){
-    $req = $bdd->query('SELECT * FROM gab');
-    return fetchDatas($req);
+    $data = $bdd->query('SELECT * FROM gab');
+    return $data;
 }
-function selectCommercantsDatas(){}
+
+
 
 //Requètes pour l'affichage de operations
+function getClientList($bdd){
+    $data = $bdd->query('SELECT numClient, CONCAT(civClient, " ", nomClient, " ", prenomClient) as selClient FROM client');
+    return $data;
+}

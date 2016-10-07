@@ -53,19 +53,55 @@
                             ?>
                         </div>
                     </div>
+                    <div class="panel panel-default col-xs-2">
+                        <div class="panel-heading">
+                            Total des opérations
+                        </div>
+                        <div class="panel-body">
+                            <?php
+                                echo $totalOp['totalOp'] . " €";
+                            ?>
+                        </div>
+                    </div>
 
 
                 </div>
 
                 <div class="row">
-                    <div class="panel panel-default col-xs-2">
+                    <div class="panel panel-default col-xs-6">
                         <div class="panel-heading">
                             Activité des GAB
                         </div>
                         <div class="panel-body">
-                            <?php
-                                var_dump($gabActivity);
-                            ?>
+                            <table class="table table-striped">
+                                <?php
+                                while ($row = $gabActivity->fetch()) {
+                                    ?>
+                                    <tr>
+                                        <th>Numéro du GAB</th>
+                                        <th>Localisation</th>
+                                        <th>Compte lié</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <?php
+                                                echo $row['numGAB'];
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php
+                                            echo $row['adresseGAB'] . " " . $row['CPGAB'] . " " . $row['villeGAB'];
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php
+                                            echo $row['numCompte'];
+                                            ?>
+                                    </tr>
+                                <?php
+                                }
+                                ?>
+                            </table>
                         </div>
                     </div>
                 </div>

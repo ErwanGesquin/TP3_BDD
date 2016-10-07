@@ -6,4 +6,4 @@
  * Time: 11:27
  */
 
-    include ("../view/opConsultation.html");
+    include("../view/opConsultation.php");

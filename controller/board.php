@@ -6,4 +6,4 @@
  * Time: 11:20
  */
 
-    include("../view/board.html");
+    include("../view/board.php");

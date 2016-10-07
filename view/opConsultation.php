@@ -11,6 +11,10 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/header.css">
+    <?php
+    include ('../controller/bdd.php');
+    $bdd = connectBdd('localhost', 'ensibank', 'utf8', 'root', 'root');
+    ?>
 </head>
 <body>
 <div class="container-fluid">
@@ -34,14 +38,20 @@
                 <h3>Consultation des opérations</h3>
             </div>
             <div class="row panel-body">
+
                 <form class="form-horizontal" method="POST" action="../controller/opDisplaySelection.php">
                     <div class="form-group">
                         <label for="clientNameInput" class="col-sm-2 control-label">Consulter les opérations de : </label>
                         <div class="col-sm-4">
                             <select id="clientNameInput" class="form-control" name="name"> <!-- ici sera rempli avec la liste des clients via repuête php -->
                                 <option>--</option>
-                                <option>Mme</option>
-                                <option>Mlle</option>
+                                <?php
+                                $clientList = getClientList($bdd);
+                                while ($row = $clientList->fetch()) {
+                                    echo "<option id='" .$row['numClient']. "'>" . $row['selClient'] . "</option>";
+                                }
+                                ?>
+
                             </select>
                         </div>
                     </div>
@@ -50,6 +60,7 @@
                         <label for="cardNumberInput" class="col-sm-2 control-label">Consulter les opérations de la carte n° :</label>
                         <div class="col-sm-4">
                             <select id="cardNumberInput" class="form-control" name="cardNumber">
+                                <option>--</option>
                                 <option>Compte chèque</option>
                                 <option>Compte sur livret</option>
                                 <option>Plan épargne logement</option>
