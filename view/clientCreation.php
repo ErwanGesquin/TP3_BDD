@@ -21,10 +21,10 @@
             </div>
             <div class="row panel-body">
                 <ul class="nav nav-pills nav-stacked">
-                    <li role="presentation"><a href="../controller/board.php">Tableau de bord</a></li>
-                    <li role="presentation"><a href="../controller/opConsultation.php">Consultation des opérations</a></li>
-                    <li role="presentation"><a href="../controller/clientCreation.php">Création client</a></li>
-                    <li role="presentation"><a href="../controller/accountOpenning.php">Ouverture compte</a></li>
+                    <li role="presentation"><a href="../model/board.php">Tableau de bord</a></li>
+                    <li role="presentation"><a href="../model/opConsultation.php">Consultation des opérations</a></li>
+                    <li role="presentation"><a href="../model/clientCreation.php">Création client</a></li>
+                    <li role="presentation"><a href="../model/accountOpenning.php">Ouverture compte</a></li>
                 </ul>
             </div>
         </div>
