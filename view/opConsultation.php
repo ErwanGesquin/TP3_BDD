@@ -48,7 +48,7 @@
                                 <?php
                                 $clientList = getClientList($bdd);
                                 while ($row = $clientList->fetch()) {
-                                    echo "<option id='" .$row['numClient']. "'>" . $row['selClient'] . "</option>";
+                                    echo "<option value='" .$row['numClient']. "'>" . $row['selClient'] . "</option>";
                                 }
                                 ?>
 
@@ -61,12 +61,12 @@
                         <div class="col-sm-4">
                             <select id="cardNumberInput" class="form-control" name="cardNumber">
                                 <option>--</option>
-                                <option>Compte chèque</option>
-                                <option>Compte sur livret</option>
-                                <option>Plan épargne logement</option>
-                                <option>Codevi</option>
-                                <option>Compte de GAB</option>
-                                <option>Compte commercant</option>
+                                <?php
+                                $cardList = getCardList($bdd);
+                                while ($row = $cardList->fetch()) {
+                                    echo "<option value='" . $row['numCarte'] . "'>" . $row['numCarte'] . "</option>";
+                                }
+                                ?>
                             </select>
                         </div>
                     </div>

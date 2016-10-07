@@ -19,3 +19,5 @@
 
     insertNewClient($bdd, $civilite, $name, $firstName, $address, $zipcode, $city);
 
+    header('Location: ../model/clientCreation.php');
+

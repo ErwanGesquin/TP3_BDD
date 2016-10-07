@@ -47,7 +47,7 @@
                                 <?php
                                 $clientList = getClientList($bdd);
                                 while ($row = $clientList->fetch()) {
-                                    echo "<option id='" .$row['numClient']. "'>" . $row['selClient'] . "</option>";
+                                    echo "<option value='" .$row['numClient']. "'>" . $row['selClient'] . "</option>";
                                 }
                                 ?>
                             </select>

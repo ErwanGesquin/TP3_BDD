@@ -91,3 +91,16 @@ function getClientList($bdd){
     $data = $bdd->query('SELECT numClient, CONCAT(civClient, " ", nomClient, " ", prenomClient) as selClient FROM client');
     return $data;
 }
+
+function getCardList($bdd){
+    $data = $bdd->query('SELECT numCarte FROM carte');
+    return $data;
+}
+
+function getOperationsByClient($bdd, $opTitulaire, $dateMax, $dateMin){
+    $data = $bdd->query('SELECT o.* FROM operation o JOIN compte co ON co.numCompte = o.numCompte
+                                                   JOIN posedecompte pc ON pc.numCompte = co.numCompte
+                                                   JOIN client c ON c.numClient = pc.numClient
+                                                   WHERE dateOperation < ' . $dateMax . ' && dateOperation > ' . $dateMin);
+    return $data;
+}
