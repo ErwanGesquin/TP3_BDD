@@ -48,7 +48,7 @@ function insertNewAccount($bdd, $accountType, $solde){
 
         $req->execute(array(
             'typeCompte' => $accountType,
-            'soldeComte' => $solde
+            'soldeCompte' => $solde
         ));
     }catch(Exception $e){
         die('Erreur : ' . $e->getMeessage());
@@ -57,17 +57,21 @@ function insertNewAccount($bdd, $accountType, $solde){
 
 function getAccountNumber($bdd){
     try{
-        $req = $bdd->prepare('SELECT MAX(numCompte) FROM compte');
-
-        $res = $req->execute();
-        var_dump($res);
-        return fetchDatas($res);
+        $req = $bdd->query('SELECT MAX(numCompte) as lastAccount FROM compte');
+        return fetchDatas($req);
     }catch(Exception $e){
         die('Erreur : ' . $e->getMeessage());
     }
 }
 
+function insertClientAccount($bdd, $client, $numAccount){
+    $req = $bdd->prepare('INSERT INTO possedecompte(numClient, numCompte) VALUES (:numClient, :numCompte)');
 
+    $req->execute(array(
+        'numClient' => $client,
+        'numCompte' => $numAccount
+    ));
+}
 
 
 //Requètes tableau de bord

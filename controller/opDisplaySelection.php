@@ -11,9 +11,6 @@
     $dateMin = $_POST['dateMin'];
     $dateMax = $_POST['dateMax'];
 
-    echo $opTitulaire;
-    var_dump($opTitulaire);
-    echo $cardNumber;
 
     include ('../controller/bdd.php');
     $bdd = connectBdd('localhost', 'ensibank', 'utf8', 'root', 'root');

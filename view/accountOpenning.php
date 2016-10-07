@@ -42,7 +42,7 @@
                     <div class="form-group">
                         <label for="clientNameInput" class="col-sm-2 control-label">Titulaire du compte</label>
                         <div class="col-sm-4">
-                            <select id="clientNameInput" class="form-control" name="accountTit"> <!-- ici sera rempli avec la liste des clients via repuête php -->
+                            <select id="clientNameInput" class="form-control" name="name"> <!-- ici sera rempli avec la liste des clients via repuête php -->
                                 <option>--</option>
                                 <?php
                                 $clientList = getClientList($bdd);
@@ -56,13 +56,13 @@
                     <div class="form-group">
                         <label for="accountTypeInput" class="col-sm-2 control-label">Type de compte</label>
                         <div class="col-sm-4">
-                            <select id="accountTypeInput" class="form-control" name="accountType">
-                                <option>Compte chèque</option>
-                                <option>Compte sur livret</option>
-                                <option>Plan épargne logement</option>
-                                <option>Codevi</option>
-                                <option>Compte de GAB</option>
-                                <option>Compte commercant</option>
+                            <select id="accountTypeInput" class="form-control" name="type">
+                                <option value="0">Compte chèque</option>
+                                <option value="1">Compte sur livret</option>
+                                <option value="2">Plan épargne logement</option>
+                                <option value="3">Codevi</option>
+                                <option value="4">Compte de GAB</option>
+                                <option value="5">Compte commercant</option>
                             </select>
                         </div>
                     </div>
